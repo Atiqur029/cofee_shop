@@ -1,13 +1,16 @@
+import 'dart:ui';
+
 import 'package:badges/badges.dart';
 import 'package:cofee_shop/GETX/fav_controlar.dart';
 import 'package:cofee_shop/model/productmodel.dart';
-import 'package:cofee_shop/page/cart_List/cartlist.dart';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../GETX/productsDetails/productsdetails.dart';
 import '../component/productdetailsbody.dart';
+import '../fevorite list/favorite_list.dart';
+import 'cart_List/cartlist.dart';
 
 class ProductDetails extends StatelessWidget {
   ProductDetails({super.key, required this.model});
@@ -24,28 +27,35 @@ class ProductDetails extends StatelessWidget {
       child: Scaffold(
           appBar: AppBar(
             actions: [
-              Padding(
-                padding: const EdgeInsets.only(left: 20, right: 20, top: 10),
-                child: Badge(
-                  badgeContent: Obx((() => Text(
-                        favoriteControlar.numberofitem.value.toString(),
-                        style: const TextStyle(color: Colors.white),
-                      ))),
-                  child: const Icon(
-                    Icons.favorite,
-                    color: Colors.white,
+              InkWell(
+                onTap: () {
+                  Get.to(Favoritelist());
+                },
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 20, right: 20, top: 10),
+                  child: Badge(
+                    badgeContent: Obx((() => Text(
+                          favoriteControlar.numberofitem.value.toString(),
+                          style: const TextStyle(color: Colors.white),
+                        ))),
+                    child: const Icon(
+                      Icons.favorite,
+                      color: Colors.brown,
+                    ),
                   ),
                 ),
               ),
               InkWell(
                 onTap: (() {
-                  Get.to(const Cartlistbackground());
+                  Get.to(Cartlist());
                 }),
                 child: Padding(
                   padding: const EdgeInsets.only(left: 10, right: 20, top: 10),
                   child: Badge(
-                    badgeContent: Obx(
-                        () => Text(cartcontrolar.numberqty.value.toString())),
+                    badgeContent: Obx(() => Text(
+                          cartcontrolar.numberqty.value.toString(),
+                          style: const TextStyle(color: Colors.white),
+                        )),
                     child: const Icon(
                       Icons.shopping_cart_outlined,
                       color: Colors.white,

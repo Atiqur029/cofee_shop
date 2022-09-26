@@ -36,15 +36,17 @@ class NewCartItem extends StatelessWidget {
             child: Text(
               currentProduct.name,
               style: const TextStyle(
-                  color: Colors.white,
-                  fontSize: 20,
+                  color: Color.fromARGB(255, 3, 221, 40),
+                  fontSize: 25,
                   fontWeight: FontWeight.bold),
             ),
           ),
           Text(
             "৳ ${currentProduct.price.toString()}",
             style: const TextStyle(
-                fontSize: 20, fontWeight: FontWeight.bold, color: Colors.white),
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+                color: Color.fromARGB(255, 82, 255, 120)),
           )
         ],
       ),

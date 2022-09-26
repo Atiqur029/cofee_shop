@@ -46,8 +46,8 @@ class Catagoris extends StatelessWidget {
                               fontWeight: FontWeight.bold,
                               color:
                                   catagoriControlar.currentstate.value == index
-                                      ? Colors.white
-                                      : Colors.white70),
+                                      ? Colors.amberAccent
+                                      : Colors.blueAccent),
                         ),
                       ),
                     ),
